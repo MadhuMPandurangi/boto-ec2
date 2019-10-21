@@ -1,4 +1,4 @@
-# Step 1 - Install python and pip
+# Step 1 - Install python2x and pip
 
 # Step 2 - Install and configure boto
   Reffer the below link to install and configure.
