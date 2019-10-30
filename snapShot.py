@@ -2,6 +2,7 @@ import boto3,datetime,pprint
 
 region = "ap-south-1c"
 ec2 = boto3.resource('ec2')
+client = boto3.client('ec2')
 
 def create_Snapshot(ids):
     date = str(datetime.datetime.now().strftime('%d-%b-%y/%H:%M:%S'))
@@ -20,3 +21,7 @@ def create_Snapshot(ids):
         pprint.pprint(snapshot)
     except Exception as e:
         print('error', e)  
+
+def listSnapShots():
+    snapshots = client.describe_snapshots(Filters=[{'Name':'volume-id','Values':['vol-04ce8411bb9f9babf']}],DryRun=False)
+    pprint.pprint(snapshots)

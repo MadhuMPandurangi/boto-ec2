@@ -1,5 +1,5 @@
 import boto3,time
-
+from exc_sh_cmd import executeShellCmd
 
 ec2 = boto3.resource('ec2')
 client = boto3.client('ec2')
@@ -19,6 +19,7 @@ def start_instance(ids):
         tdelta = str(t2 - t1)   
         print(res)
         print(tdelta+"s is the time taken")
+        executeShellCmd(ids)
     except Exception as e:
         print(e)
 
